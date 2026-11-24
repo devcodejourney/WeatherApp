@@ -87,15 +87,19 @@ export function usePushAlerts() {
             if (reg && 'showNotification' in reg) {
               await reg.showNotification(title, {
                 body,
-                icon: '/pwa-192x192.png',
-                badge: '/pwa-192x192.png',
+                icon: `${import.meta.env.BASE_URL}pwa-192x192.png`,
+                badge: `${import.meta.env.BASE_URL}pwa-192x192.png`,
                 tag,
               });
               deliveryMode = 'service-worker';
             }
           }
           if (deliveryMode === 'in-app') {
-            new Notification(title, { body, icon: '/pwa-192x192.png', tag });
+            new Notification(title, {
+              body,
+              icon: `${import.meta.env.BASE_URL}pwa-192x192.png`,
+              tag,
+            });
             deliveryMode = 'browser-api';
           }
         } catch {

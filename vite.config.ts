@@ -7,6 +7,7 @@ import {VitePWA} from 'vite-plugin-pwa';
 
 export default defineConfig(() => {
   return {
+    base: '/WeatherApp/',
     plugins: [
       react(),
       tailwindcss(),
@@ -14,31 +15,31 @@ export default defineConfig(() => {
         registerType: 'autoUpdate',
         includeAssets: ['icon.svg', 'apple-touch-icon.png', 'sw-notifications.js'],
         manifest: {
-          id: '/',
+          id: './',
           name: 'Weather · App',
           short_name: 'Weather',
           description:
             'Real-time weather updates, detailed daily forecasts, severe weather push alerts, and humidity index tracking.',
-          start_url: '/',
-          scope: '/',
+          start_url: './',
+          scope: './',
           display: 'standalone',
           background_color: '#ffffff',
           theme_color: '#0ea5e9',
           icons: [
             {
-              src: '/pwa-192x192.png',
+              src: 'pwa-192x192.png',
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-512x512.png',
+              src: 'pwa-512x512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/pwa-maskable-512x512.png',
+              src: 'pwa-maskable-512x512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
@@ -46,7 +47,7 @@ export default defineConfig(() => {
           ],
         },
         workbox: {
-          importScripts: ['/sw-notifications.js'],
+          importScripts: ['sw-notifications.js'],
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
           runtimeCaching: [
             {

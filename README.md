@@ -118,6 +118,13 @@ npm run build
 npm run preview
 ```
 
+### GitHub Pages Deployment
+
+The `main` branch is deployed automatically through GitHub Actions. The production build uses
+the `/WeatherApp/` base path, and the published app is available at:
+
+https://devcodejourney.github.io/WeatherApp/
+
 ### Type Checking & Unit Tests
 
 ```bash

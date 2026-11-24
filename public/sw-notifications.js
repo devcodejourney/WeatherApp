@@ -3,7 +3,7 @@ self.addEventListener('push', (event) => {
     title: 'Weather Alert',
     body: 'Severe weather conditions detected in your monitored city.',
     tag: 'weather-alert',
-    url: '/',
+    url: self.registration.scope,
   };
 
   if (event.data) {
@@ -18,8 +18,8 @@ self.addEventListener('push', (event) => {
   event.waitUntil(
     self.registration.showNotification(payload.title, {
       body: payload.body,
-      icon: '/pwa-192x192.png',
-      badge: '/pwa-192x192.png',
+      icon: `${self.registration.scope}pwa-192x192.png`,
+      badge: `${self.registration.scope}pwa-192x192.png`,
       tag: payload.tag,
       renotify: true,
       data: { url: payload.url || '/' },
@@ -29,7 +29,8 @@ self.addEventListener('push', (event) => {
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const targetUrl = (event.notification.data && event.notification.data.url) || '/';
+  const targetUrl =
+    (event.notification.data && event.notification.data.url) || self.registration.scope;
 
   event.waitUntil(
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {

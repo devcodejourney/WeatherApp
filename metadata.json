@@ -1,0 +1,6 @@
+{
+  "name": "Weather · App",
+  "description": "Real-time meteorological dashboard with detailed daily forecasts, severe weather push alerts, and humidity index tracking.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
